@@ -24,8 +24,8 @@ USER spring:spring
 # 4. Copiamos el artefacto construido desde la etapa anterior
 COPY --from=build /app/target/*.jar app.jar
 
-# 5. Exponemos el puerto estándar de Spring Boot
-EXPOSE 8080
+# 5. Exponemos el puerto estándar para la comunicación (Capa Privada)
+EXPOSE 80
 
 # 6. Comando de inicio con optimización de memoria para contenedores
 ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
